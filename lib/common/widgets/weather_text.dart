@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum WeatherTextType { custom, h1, h1m, h2, h2m, b1, b1m, b2, b2m, b3, b3m }
+enum WeatherTextType { custom, h1, h1m, h2, h2m, b1, b1m, b2, b2m }
 
 class WeatherText extends StatelessWidget {
   const WeatherText({
@@ -10,6 +10,7 @@ class WeatherText extends StatelessWidget {
     this.fontFamily = 'Ubuntu',
     this.textType = WeatherTextType.custom,
     this.color,
+    this.height,
   });
 
   final String fontFamily;
@@ -17,6 +18,7 @@ class WeatherText extends StatelessWidget {
   final double fontSize;
   final Color? color;
   final WeatherTextType textType;
+  final double? height;
 
   TextStyle get textStyle => _styleByType();
 
@@ -50,7 +52,7 @@ class WeatherText extends StatelessWidget {
           fontSize: 15,
           color: color ?? const Color(0xff8799A5),
           fontFamily: 'Roboto Regular',
-          height: 2,
+          height: height ?? 2,
         );
       case WeatherTextType.b2m:
         return TextStyle(
@@ -58,12 +60,12 @@ class WeatherText extends StatelessWidget {
           color: color ?? Colors.white,
           fontFamily: 'Roboto Medium',
         );
-      // WeatherTextType.b2m
       default:
         return TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
           color: color ?? const Color(0xff2B2D33),
+          height: height,
         );
     }
   }

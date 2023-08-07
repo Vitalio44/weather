@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -130,9 +132,9 @@ class _AuthScreenState extends State<AuthScreen> {
                           );
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'weak-password') {
-                            print('The password provided is too weak.');
+                            log('The password provided is too weak.');
                           } else if (e.code == 'email-already-in-use') {
-                            print('The account already exists for that email.');
+                            log('The account already exists for that email.');
                             try {
                               await FirebaseAuth.instance
                                   .signInWithEmailAndPassword(
@@ -141,14 +143,14 @@ class _AuthScreenState extends State<AuthScreen> {
                               );
                             } on FirebaseAuthException catch (e) {
                               if (e.code == 'user-not-found') {
-                                print('No user found for that email.');
+                                log('No user found for that email.');
                               } else if (e.code == 'wrong-password') {
-                                print('Wrong password provided for that user.');
+                                log('Wrong password provided for that user.');
                               }
                             }
                           }
                         } catch (e) {
-                          print(e);
+                          log(e.toString());
                         }
                       }
                     },
