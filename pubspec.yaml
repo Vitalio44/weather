@@ -14,6 +14,8 @@ dependencies:
   firebase_auth: ^4.7.2
   firebase_core: ^2.15.0
   flutter_svg: ^2.0.7
+  flutter_bloc: ^8.1.3
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +32,8 @@ flutter:
 
   assets:
     - assets/auth/svg/
+    - assets/weather/svg/
+    - assets/weather/images/
 
   fonts:
     - family: Ubuntu
