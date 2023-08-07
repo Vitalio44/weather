@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/auth/auth_screen.dart';
 import 'package:weather/common/cubit/base_cubit.dart';
+import 'package:weather/common/widgets/splash_screen.dart';
 import 'package:weather/weather/cubit/weather_cubit.dart';
 import 'package:weather/weather/weather_sceen.dart';
 
@@ -38,13 +39,7 @@ class WeatherAppContent extends StatelessWidget {
             child: const WeatherScreen(),
           );
         } else {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(
-                color: Color(0xff0700FF),
-              ),
-            ),
-          );
+          return const SplashScreen();
         }
       },
     );
